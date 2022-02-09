@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>Clubs</title>
+</head>
+  <body>
+    <h1>Clubs Sign In Page</h1>
+    <p>Please enter your email address and password.</p>
+    <form action="{% url 'sign_in' %}" method="post">
+      {% csrf_token %}
+        {{ form }}
+        <hr size="8" width="90%" color="white">
+        <input type="submit" value="Sign in">
+    </form>
+  </body>
+</html>

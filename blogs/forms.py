@@ -1,6 +1,8 @@
 from django import forms
 from django.core.validators import RegexValidator
 from .models import User
+from django.utils.safestring import mark_safe
+
 
 class SignUpForm(forms.ModelForm):
     class Meta:
@@ -47,3 +49,7 @@ def save(self):
 
     )
     return user
+
+class SignInForm(forms.Form):
+    email = forms.EmailField(label = 'Email')
+    password = forms.CharField(label=mark_safe('<br />Password'), widget=forms.PasswordInput())
