@@ -7,7 +7,7 @@ from django.utils.safestring import mark_safe
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'bio']
+        fields = ['first_name', 'last_name', 'username', 'bio']
     new_password= forms.CharField(
         label='Password ',
         widget=forms.PasswordInput(),
@@ -45,11 +45,11 @@ def save(self):
         statment = form.cleaned_data.get('statment'),
         level = form.cleaned_data.get('level'),
         password = form.cleaned_data.get('password'),
-        email = form.cleaned_data.get('email')
+        username = form.cleaned_data.get('username')
 
     )
     return user
 
 class SignInForm(forms.Form):
-    email = forms.EmailField(label = 'Email')
+    username = forms.CharField(label = 'Username')
     password = forms.CharField(label=mark_safe('<br />Password'), widget=forms.PasswordInput())

@@ -1,10 +1,10 @@
 <html>
 <head>
-  <title>Clubs</title>
+  <title>Book club</title>
 </head>
   <body>
     <h1>Clubs Sign In Page</h1>
-    <p>Please enter your email address and password.</p>
+    <p>Please enter your username and password.</p>
     <form action="{% url 'sign_in' %}" method="post">
       {% csrf_token %}
         {{ form }}
