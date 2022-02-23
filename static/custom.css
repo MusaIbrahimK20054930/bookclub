@@ -1,0 +1,40 @@
+.page-container {
+    padding-top: 80px;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.cover-card {
+    -margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.centered-card {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+hr.solid {
+    border-top: 3px solid rgb(100, 100, 100);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%; 
+}
+
+#vanta-bg > .container {
+    overflow-y: scroll;
+    padding-bottom: 16px;
+}
+
+.card {
+    box-shadow: 0 .2rem .3rem rgba(0,0,0,.075) !important;
+}
