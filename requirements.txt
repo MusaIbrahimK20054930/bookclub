@@ -1,0 +1,8 @@
+faker
+asgiref==3.5.0
+Django==4.0.2
+django-widget-tweaks==1.4.12
+Faker==13.2.0
+python-dateutil==2.8.2
+six==1.16.0
+sqlparse==0.4.2
