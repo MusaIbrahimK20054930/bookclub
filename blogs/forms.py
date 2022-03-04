@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
-from .models import User
+from .models import User, Club
 from django.utils.safestring import mark_safe
 
 
@@ -53,3 +53,13 @@ def save(self):
 class SignInForm(forms.Form):
     username = forms.CharField(label = 'Username')
     password = forms.CharField(label=mark_safe('<br />Password'), widget=forms.PasswordInput())
+
+
+class ClubCreationForm(forms.ModelForm):
+    """Form enabling logged user to create a new club."""
+    class Meta:
+        model = Club
+        fields = ['name', 'owner', 'location', 'mission_statement', 'description']
+        widgets = {
+            'owner': forms.HiddenInput(attrs = {'is_hidden': True})
+        }
