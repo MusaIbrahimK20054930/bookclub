@@ -24,5 +24,8 @@ urlpatterns = [
     path('sign_in', views.sign_in, name = 'sign_in'),
     path('group', views.group, name = 'group'),
     path('new_club/', views.club_creation, name='new_club'),
+    path('user_dashboard/', views.user_dashboard, name='user_dashboard'),
+    path('user_profile/', views.user_profile, name='user_profile'),
+
 
 ]

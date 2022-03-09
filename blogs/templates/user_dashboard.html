@@ -1,0 +1,32 @@
+{% extends 'base_content.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+    <div class="col-12">
+        <div class="card cover-card centered-card">
+          <img src="{{user.gravatar}}" class="center" width="120" height="120" style="margin-top: 10px; margin-bottom: 10px;">
+          <h1 class="cover-heading">Welcome Back, {{user.first_name}}! </h1>
+          <p class="cover-text" style="margin: 0px;">Welcome to your profile dashboard!</p>
+          <hr class="solid">
+          <p><b>See your Profile Details:</b></p>
+          <!-- Button to logged-in user's profile -->
+          <p style="margin: 0px;">
+              <a href='{% url 'user_profile' %}' class="btn btn-lg btn-secondary">
+              User Profile
+              </a>
+          </p>
+          <hr class="solid">
+          <p><b>Create a brand new Book Club:</b></p>
+          <!-- Button to club creation -->
+          <p style="margin: 0px;">
+              <a href='{% url 'new_club' %}' class="btn btn-lg btn-secondary">
+              Create Club
+            </a>
+          </p>
+          <hr class="solid">
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
