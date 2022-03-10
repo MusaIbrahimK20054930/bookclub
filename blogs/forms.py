@@ -29,6 +29,7 @@ class SignUpForm(forms.ModelForm):
     password_confirmation= forms.CharField(label='Password confirmation ', widget=forms.PasswordInput())
 
 
+
 def clean(self):
     super().clean()
     new_password = self.cleaned_data.get('new_password')
@@ -46,7 +47,6 @@ def save(self):
         level = form.cleaned_data.get('level'),
         password = form.cleaned_data.get('password'),
         username = form.cleaned_data.get('username')
-
     )
     return user
 

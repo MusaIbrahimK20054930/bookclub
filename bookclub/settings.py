@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogs',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +126,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Login URL for redirecting users from login protected views
+LOGIN_URL = 'home'
+
+# User model for authentication and login purposes
 AUTH_USER_MODEL = 'blogs.User'
+
+# URL where @login_prohibited redirects to
+REDIRECT_URL_WHEN_LOGGED_IN = 'user_dashboard'
+

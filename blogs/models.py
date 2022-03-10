@@ -1,10 +1,9 @@
-from django.core.validators import RegexValidator
 from django.db import models
+from django.core.validators import RegexValidator
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import Group, Permission
-from django.contrib.contenttypes.models import ContentType
+from libgravatar import Gravatar
 
-
+# Create your models here.
 # Create your models here.
 class User(AbstractUser):
     """User model used for authentication and microblog authoring."""
@@ -22,6 +21,15 @@ class User(AbstractUser):
     bio = models.CharField(max_length=520, blank=True)
 
 
+
+    def gravatar(self, size=120):
+        """Return a URL to the user's gravatar."""
+        gravatar_object = Gravatar(self.email)
+        gravatar_url = gravatar_object.get_image(size=size, default='mp')
+        return gravatar_url
+
+        
+
 class Club(models.Model):
     name = models.CharField(
         max_length=100,
@@ -36,3 +44,5 @@ class Club(models.Model):
     location=models.CharField(max_length=100, blank=False)
     mission_statement=models.CharField(max_length=200, blank=False)
     description=models.CharField(max_length=500, blank=False)
+
+

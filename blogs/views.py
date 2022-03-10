@@ -4,9 +4,24 @@ from .forms import SignUpForm, SignInForm, ClubCreationForm
 from django.contrib.auth import authenticate, login, logout
 from .models import Club
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.db.models import Q
 
 
 # Create your views here.
+
+def user_dashboard(request):
+    """Show user dashbaord."""
+    data = {'user': request.user}
+    return render(request, 'user_dashboard.html', data)
+
+
+@login_required
+def user_profile(request):
+    data = {'user': request.user}
+    return render(request, 'user_profile.html', data)
+
 def home(request):
     return render(request, 'home.html')
 
@@ -22,7 +37,7 @@ def sign_up(request):
             user.set_password(form.cleaned_data['password_confirmation'])
             user.save()
             login(request, user)
-            return redirect('group')
+            return redirect('user_dashboard')
     else:
         form = SignUpForm()
     return render(request, 'sign_up.html', {'form': form})
@@ -37,7 +52,7 @@ def sign_in(request):
             user = authenticate(username=username, password=passwordEnter)
             if user is not None:
                 login(request, user)
-                return redirect('group')
+                return redirect('user_dashboard')
 
     form = SignInForm()
     return render(request, 'sign_in.html', {'form': form})

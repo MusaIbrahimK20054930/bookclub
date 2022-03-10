@@ -1,18 +1,23 @@
+
 {% extends 'base_content.html' %}
 {% block content %}
-<html>
-<head>
-  <title>Book club</title>
-</head>
-  <body>
-    <h1>Clubs Sign In Page</h1>
-    <p>Please enter your username and password.</p>
-    <form action="{% url 'sign_in' %}" method="post">
-      {% csrf_token %}
-        {{ form }}
-        <hr size="8" width="90%" color="white">
-        <input type="submit" value="Sign in">
-    </form>
-  </body>
-</html>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card cover-card">
+                <div class="card-body">
+                    <h1 class="cover-heading">Login</h1>
+                    <!-- Sign-in form -->
+                    <form action="{% url 'sign_in' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        {% include 'partials/bootstrap_form.html' with form=form %}
+                        <input type="submit" value="Sign in" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
