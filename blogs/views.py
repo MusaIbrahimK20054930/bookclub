@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .forms import SignUpForm, SignInForm, ClubCreationForm
+from .forms import SignUpForm, SignInForm, ClubCreationForm, EditProfile
 from django.contrib.auth import authenticate, login, logout
 from .models import Club
 from django.contrib import messages
@@ -28,6 +28,21 @@ def home(request):
 def group(request):
     return render(request, 'group.html')
 
+def log_out(request):
+    logout(request)
+    return redirect('home')
+
+def info(request):
+    # form = EditProfile()
+    # return render(request, 'info.html')
+    if request.method == 'POST':
+        form = EditProfile(request.POST, instance = request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('info')
+    else:
+        form = EditProfile(instance = request.user)
+        return render(request, 'info.html', {'form': form})
 
 def sign_up(request):
     if request.method == 'POST':

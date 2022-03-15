@@ -16,11 +16,27 @@
               </a>
           </p>
           <hr class="solid">
+          <p style="margin: 0px;">
+          <p><b>Edit your Profile Details:</b></p>
+          <!-- Button to edit user's profile -->
+              <a href='{% url 'info' %}' class="btn btn-lg btn-secondary">
+              Edit Profile
+              </a>
+          </p>
+          <hr class="solid">
           <p><b>Create a brand new Book Club:</b></p>
           <!-- Button to club creation -->
           <p style="margin: 0px;">
               <a href='{% url 'new_club' %}' class="btn btn-lg btn-secondary">
               Create Club
+            </a>
+          </p>
+          <hr class="solid">
+          <p><b>Log out of your account:</b></p>
+          <!-- Button to club creation -->
+          <p style="margin: 0px;">
+              <a href='{% url 'log_out' %}' class="btn btn-lg btn-secondary">
+              Log out
             </a>
           </p>
           <hr class="solid">

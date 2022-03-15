@@ -28,7 +28,7 @@ class User(AbstractUser):
         gravatar_url = gravatar_object.get_image(size=size, default='mp')
         return gravatar_url
 
-        
+
 
 class Club(models.Model):
     name = models.CharField(
@@ -44,5 +44,3 @@ class Club(models.Model):
     location=models.CharField(max_length=100, blank=False)
     mission_statement=models.CharField(max_length=200, blank=False)
     description=models.CharField(max_length=500, blank=False)
-
-

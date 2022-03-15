@@ -2,6 +2,7 @@ from django import forms
 from django.core.validators import RegexValidator
 from .models import User, Club
 from django.utils.safestring import mark_safe
+from django.contrib.auth.forms import UserChangeForm
 
 
 class SignUpForm(forms.ModelForm):
@@ -63,3 +64,9 @@ class ClubCreationForm(forms.ModelForm):
         widgets = {
             'owner': forms.HiddenInput(attrs = {'is_hidden': True})
         }
+
+class EditProfile(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'bio')
